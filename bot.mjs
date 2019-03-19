@@ -1,3 +1,3 @@
-export function createBot() {
-    return {}
+export function createBot(url, {onPost}) {
+    onPost({})
 }
