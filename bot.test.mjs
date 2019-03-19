@@ -12,6 +12,7 @@ const feedURL = feedDomain + feedPath
 
 test.cb('call onPost every new entry', t => {
     t.plan(2)
+    t.timeout(1000)
 
     let itemsReceived = []
     let hasError = false
