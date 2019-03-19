@@ -4,8 +4,8 @@ import nock from 'nock'
 
 import {createBot, destroyBot} from './bot'
 
-const feedDomain = 'http://google.com/'
-const feedPath = 'feed'
+const feedDomain = 'http://google.com'
+const feedPath = '/feed'
 const feedFixture = path.join(path.dirname(''), 'fixtures/first-feed.xml')
 const feedLength = 20
 const feedURL = feedDomain + feedPath
