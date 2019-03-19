@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "ava"
   },
   "keywords": [
     "ssb",
@@ -16,6 +16,15 @@
   "author": "Walker at praiseweb.com.br",
   "license": "MIT",
   "devDependencies": {
-    "jest": "^24.5.0"
+    "ava": "^1.3.1"
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ],
+    "babel": false,
+    "extensions": [
+      "mjs"
+    ]
   }
 }
