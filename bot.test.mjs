@@ -15,30 +15,31 @@ test.cb('call onPost every new entry', t => {
     t.timeout(1000)
 
     let itemsReceived = []
-    let hasError = false
+    let errors = []
 
-    nock(feedDomain)
+    const scope = nock(feedDomain)
+        // .log(console.log)
         .get(feedPath)
         .replyWithFile(200, feedFixture)
 
     const done = () => {
         t.is(itemsReceived.length, feedLength)
-        t.is(hasError, false)
-        nock.cleanAll()
+        t.deepEqual(errors, [])
+        
+        scope.isDone()
         destroyBot()
         t.end()
     }
 
     const onPost = entry => {
         itemsReceived.push(entry)
-        
         if (itemsReceived.length === feedLength) {
             done();
         }
     }
     
-    const onError = () => {
-        error = true
+    const onError = error => {
+        errors.push(error)
     }
     createBot(feedURL, {onPost, onError})
 })
