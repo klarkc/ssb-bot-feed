@@ -26,5 +26,6 @@
     "extensions": [
       "mjs"
     ]
-  }
+  },
+  "dependencies": {}
 }

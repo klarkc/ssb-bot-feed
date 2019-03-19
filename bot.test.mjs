@@ -1,13 +1,14 @@
 import test from 'ava'
+
 import {createBot} from './bot'
 
-test.cb('call onPost with a new rss entry', t => {
+test.cb('call onPost with a new entry', t => {
     t.plan(1)
 
-    const url = 'foo'
+    const feedURL = 'http://github.com/nikezono.atom'
     const onPost = entry => {
         t.deepEqual(entry, {})
         t.end()
     }
-    createBot(url, {onPost})
+    createBot(feedURL, {onPost})
 })
