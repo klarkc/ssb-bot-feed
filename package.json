@@ -28,5 +28,7 @@
       "mjs"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "rss-feed-emitter": "^2.0.1"
+  }
 }

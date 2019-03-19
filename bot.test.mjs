@@ -2,18 +2,19 @@ import path from 'path'
 import test from 'ava'
 import nock from 'nock'
 
-import {createBot} from './bot'
+import {createBot, destroyBot} from './bot'
 
-const feedDomain = 'http://foo.bar/'
-const feedPath = 'feeds'
+const feedDomain = 'http://google.com/'
+const feedPath = 'feed'
 const feedFixture = path.join(path.dirname(''), 'fixtures/first-feed.xml')
 const feedLength = 20
 const feedURL = feedDomain + feedPath
 
-test.cb('call onPost with a new entry', t => {
-    t.plan(1)
+test.cb('call onPost every new entry', t => {
+    t.plan(2)
 
     let itemsReceived = []
+    let hasError = false
 
     nock(feedDomain)
         .get(feedPath)
@@ -21,16 +22,23 @@ test.cb('call onPost with a new entry', t => {
 
     const done = () => {
         t.is(itemsReceived.length, feedLength)
+        t.is(hasError, false)
         nock.cleanAll()
+        destroyBot()
         t.end()
     }
 
     const onPost = entry => {
-        itemsReceived.push(entry);
-
+        itemsReceived.push(entry)
+        
         if (itemsReceived.length === feedLength) {
             done();
         }
     }
-    createBot(feedURL, {onPost})
+    
+    const onError = () => {
+        console.log('errored')
+        error = true
+    }
+    createBot(feedURL, {onPost, onError})
 })
