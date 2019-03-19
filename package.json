@@ -1,0 +1,18 @@
+{
+  "name": "ssb-feed",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "ssb",
+    "scuttlebutt",
+    "bot",
+    "feed",
+    "rss"
+  ],
+  "author": "Walker at praiseweb.com.br",
+  "license": "MIT"
+}
