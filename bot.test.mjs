@@ -38,7 +38,6 @@ test.cb('call onPost every new entry', t => {
     }
     
     const onError = () => {
-        console.log('errored')
         error = true
     }
     createBot(feedURL, {onPost, onError})
