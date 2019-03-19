@@ -14,5 +14,8 @@
     "rss"
   ],
   "author": "Walker at praiseweb.com.br",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.5.0"
+  }
 }
