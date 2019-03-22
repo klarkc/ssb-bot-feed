@@ -5,4 +5,4 @@ Scuttlebutt bot that read feeds and post updates
 
 ## Usage
 
-`npm run start [https://www.feedforall.com/sample.xml](http://www.nintendolife.com/feeds/news)`
+`npm run start http://www.nintendolife.com/feeds/news`
