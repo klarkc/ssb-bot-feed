@@ -6,7 +6,7 @@ import yargs from 'yargs'
 const feedUrl = yargs
     .demandCommand(1)
     .argv
-    ._;
+    ._[0];
 
 ssbClient(setup({
     feedUrl,
