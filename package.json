@@ -33,6 +33,7 @@
     "rss-feed-emitter": "^2.0.1",
     "ssb-client": "^4.7.1",
     "ssb-keys": "^7.1.5",
+    "striptags": "^3.1.1",
     "yargs": "^13.2.2"
   }
 }
