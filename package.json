@@ -7,6 +7,9 @@
     "test": "ava",
     "start": "node --experimental-modules index.mjs"
   },
+  "bin": {
+    "ssb-feed": "npm run start"
+  },
   "keywords": [
     "ssb",
     "scuttlebutt",
