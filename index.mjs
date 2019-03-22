@@ -1,21 +1,9 @@
-export function setup(err, sbot, config) {
-    if (err) throw err
-    const {bot, url} = config;
+import ssbClient from 'ssb-client'
+import ssbKeys from 'ssb-keys'
 
-    const onPost = (entry) => {
-        const text = entry.title +
-                     '\n\n' +
-                     entry.description
-        const type = 'post'
-        sbot.publish({ type, text })
-    }
 
-    const onError = (err) => {
-        console.log(
-            'ignoring bot msg:',
-            err.message
-        )
-    }
-
-    bot(url, {onPost, onError})
-}
+const keys = ssbKeys.loadOrCreateSync('./bot-private.key')
+console.log('starting bot on ID', keys.id)
+ssbClient(keys, {
+    key: keys.id
+})

@@ -2,9 +2,10 @@
   "name": "ssb-feed",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "start": "node --experimental-modules index.mjs"
   },
   "keywords": [
     "ssb",
@@ -29,6 +30,8 @@
     ]
   },
   "dependencies": {
-    "rss-feed-emitter": "^2.0.1"
+    "rss-feed-emitter": "^2.0.1",
+    "ssb-client": "^4.7.1",
+    "ssb-keys": "^7.1.5"
   }
 }
