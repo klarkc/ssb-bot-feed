@@ -1,10 +1,12 @@
 import ssbClient from 'ssb-client'
 import setup from './lib/setup'
 import bot from './lib/bot'
+import yargs from 'yargs'
 
-const feedUrl = process.argv[3];
-if (feedUrl)
-    throw Error('feed url required')
+const feedUrl = yargs
+    .demandCommand(1)
+    .argv
+    ._;
 
 ssbClient(setup({
     feedUrl,
