@@ -1,9 +1,8 @@
 import ssbClient from 'ssb-client'
-import ssbKeys from 'ssb-keys'
+import setup from './lib/setup'
+import bot from './lib/bot'
 
-
-const keys = ssbKeys.loadOrCreateSync('./bot-private.key')
-console.log('starting bot on ID', keys.id)
-ssbClient(keys, {
-    key: keys.id
-})
+ssbClient(setup({
+    feedUrl: 'foo',
+    bot,
+}))
