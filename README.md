@@ -22,6 +22,7 @@ The docker image assumes that you have a [ssb-server](https://github.com/ssbc/ss
 ```bash
 docker run -d --name ssb-bot-feed \
    --network="host" \
+   --restart=always \
    -v ~/.ssb:/root/.ssb \
    klarkc/ssb-bot-feed http://www.nintendolife.com/feeds/news
 ```
