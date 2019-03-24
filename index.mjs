@@ -6,12 +6,16 @@ import setup from './lib/setup'
 import bot from './lib/bot'
 import yargs from 'yargs'
 
-const feedUrl = yargs
+const argv = yargs
     .demandCommand(1)
+    .option('host', {alias: 'h', default: 'localhost'})
+    .option('port', {alias: 'p', default: 8008})
     .argv
-    ._[0];
 
-ssbClient(setup({
+const feedUrl = argv._[0];
+const {host, port} = argv;
+
+ssbClient({host, port}, setup({
     feedUrl,
     bot,
 }))
