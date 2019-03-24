@@ -1,5 +1,5 @@
 {
-  "name": "ssb-feed",
+  "name": "ssb-bot-feed",
   "version": "1.0.1",
   "description": "",
   "main": "index.mjs",
@@ -8,7 +8,7 @@
     "start": "node --experimental-modules index.mjs"
   },
   "bin": {
-    "ssb-feed": "npm run start"
+    "ssb-bot-feed": "npm run start"
   },
   "keywords": [
     "ssb",
