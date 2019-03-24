@@ -8,7 +8,7 @@
     "start": "node --experimental-modules index.mjs"
   },
   "bin": {
-    "ssb-bot-feed": "npm run start"
+    "ssb-bot-feed": "node --experimental-modules index.mjs"
   },
   "keywords": [
     "ssb",
