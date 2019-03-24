@@ -5,10 +5,10 @@
   "main": "index.mjs",
   "scripts": {
     "test": "ava",
-    "start": "node --experimental-modules index.mjs"
+    "start": "node --experimental-modules --no-warnings index.mjs"
   },
   "bin": {
-    "ssb-bot-feed": "node --experimental-modules index.mjs"
+    "ssb-bot-feed": "index.mjs"
   },
   "keywords": [
     "ssb",
