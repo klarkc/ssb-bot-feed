@@ -1,4 +1,6 @@
 FROM  node:current
-
-RUN npm i -g ssb-bot-feed
-CMD ssb-bot-feed
+WORKDIR /usr/src/ssb-bot-feed
+COPY package*.json ./
+RUN npm install
+COPY . .
+ENTRYPOINT ["/index.mjs"]
