@@ -24,5 +24,5 @@ docker run -d --name ssb-bot-feed \
    --network="host" \
    --restart=always \
    -v ~/.ssb:/root/.ssb \
-   klarkc/ssb-bot-feed http://www.nintendolife.com/feeds/news
+   klarkc/ssb-bot-feed -h localhost -p 8008 http://www.nintendolife.com/feeds/news
 ```
