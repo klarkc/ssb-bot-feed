@@ -11,4 +11,4 @@ Download and run [ssb-server](https://github.com/ssbc/ssb-server)
 
 `ssb-bot-feed http://www.nintendolife.com/feeds/news`
 
-By default It connect on `localhost:8008` and uses `~/.ssb` settings.
+By default It connects on `localhost:8008` and uses `~/.ssb` settings.
