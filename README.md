@@ -15,8 +15,10 @@ By default It connects on `localhost:8008` and uses `~/.ssb` settings.
 
 ## Docker
 
+`/home/user/.ssb` is the path to `.ssb` folder
+
 ```bash
 docker run -d --name ssb-bot-feed \
-   -v ~/.ssb:~/.ssb \
+   -v ~/.ssb:/home/user/.ssb \
    klarkc/ssb-bot-feed http://www.nintendolife.com/feeds/news
 ```
