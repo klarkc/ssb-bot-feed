@@ -1,5 +1,5 @@
 #!/bin/sh
-":" //# comment; exec /usr/bin/env node --harmony "$0" "$@"
+":" //# comment; exec /usr/bin/env node --experimental-modules --no-warnings "$0" "$@"
 
 import ssbClient from 'ssb-client'
 import setup from './lib/setup'
