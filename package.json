@@ -5,7 +5,8 @@
   "main": "index.mjs",
   "scripts": {
     "test": "ava",
-    "start": "node --experimental-modules --no-warnings index.mjs"
+    "start": "node --experimental-modules --no-warnings index.mjs",
+    "dev:server": "node --experimental-modules --no-warnings utils/dev-server.mjs"
   },
   "bin": {
     "ssb-bot-feed": "index.mjs"
@@ -21,7 +22,9 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^1.3.1",
-    "nock": "^10.0.6"
+    "nock": "^10.0.6",
+    "ssb-config": "^3.2.5",
+    "ssb-server": "^14.1.9"
   },
   "ava": {
     "require": [
