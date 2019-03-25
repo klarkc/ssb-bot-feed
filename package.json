@@ -5,7 +5,10 @@
   "main": "index.mjs",
   "scripts": {
     "test": "ava",
-    "start": "node --experimental-modules --no-warnings index.mjs"
+    "start": "node --experimental-modules --no-warnings index.mjs",
+    "dev:server": "npx ssb-server start --port 9999 --path .ssb",
+    "dev:client": "node --experimental-modules --no-warnings index.mjs --path .ssb --port 9999 http://www.nintendolife.com/feeds/news",
+    "dev": "concurrently --kill-others \"npm run dev:server\" \"npm run dev:client\""
   },
   "bin": {
     "ssb-bot-feed": "index.mjs"
@@ -21,7 +24,10 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^1.3.1",
-    "nock": "^10.0.6"
+    "concurrently": "^4.1.0",
+    "nock": "^10.0.6",
+    "ssb-config": "^3.2.5",
+    "ssb-server": "^14.1.9"
   },
   "ava": {
     "require": [
@@ -33,9 +39,12 @@
     ]
   },
   "dependencies": {
+    "pull-stream": "^3.6.9",
+    "request": "^2.88.0",
     "rss-feed-emitter": "^2.0.1",
     "ssb-client": "^4.7.1",
     "ssb-keys": "^7.1.5",
+    "stream-to-pull-stream": "^1.7.3",
     "striptags": "^3.1.1",
     "turndown": "^5.0.3",
     "yargs": "^13.2.2"

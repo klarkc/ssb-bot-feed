@@ -10,12 +10,18 @@ const argv = yargs
     .demandCommand(1)
     .option('host', {alias: 'h', default: 'localhost'})
     .option('port', {alias: 'p', default: 8008})
+    .option('path', {alias: 'd', default: undefined})
     .argv
 
 const feedUrl = argv._[0];
-const {host, port} = argv;
+const {host, port, path} = argv;
 
-ssbClient({host, port}, setup({
+const handler = setup({
     feedUrl,
     bot,
-}))
+})
+
+ssbClient(
+    { host, port, path },
+    handler
+)
