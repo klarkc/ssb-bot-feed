@@ -13,11 +13,11 @@ const argv = yargs
     .option('path', {alias: 'd', default: undefined})
     .argv
 
-const feedUrl = argv._[0];
+const feedUrls = argv._;
 const {host, port, path} = argv;
 
 const handler = setup({
-    feedUrl,
+    feedUrls,
     bot,
 })
 
