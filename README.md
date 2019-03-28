@@ -9,6 +9,12 @@ Download and run [ssb-server](https://github.com/ssbc/ssb-server)
 
 `npm install -g ssb-bot-feed`
 
+Syntax:
+
+`ssb-bot-feed [feed1] [feed2] [feedN]`
+
+Example:
+
 `ssb-bot-feed http://www.nintendolife.com/feeds/news`
 
 By default It connects on `localhost:8008` ([ssb-server](https://github.com/ssbc/ssb-server)) and uses `~/.ssb` settings.
