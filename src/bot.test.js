@@ -402,6 +402,7 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
     }
     const unbox = (cypher, cb) => {
         t.is(cypher, fakePost.content)
+        t.end()
         cb(null, cypher.replaceAll(/\*/g, ''))
     }
     const createUserStream = ({ live, id }) => {
