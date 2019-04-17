@@ -2,8 +2,8 @@
 ":" //# comment; exec /usr/bin/env node --experimental-modules --no-warnings "$0" "$@"
 
 import ssbClient from 'ssb-client'
-import setup from './lib/setup'
 import bot from './lib/bot'
+import feedMonitor from './lib/feedMonitor'
 import yargs from 'yargs'
 
 const argv = yargs
@@ -16,9 +16,9 @@ const argv = yargs
 const feedUrls = argv._;
 const {host, port, path} = argv;
 
-const handler = setup({
+const handler = bot({
     feedUrls,
-    bot,
+    feedMonitor,
 })
 
 ssbClient(
