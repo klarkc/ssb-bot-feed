@@ -388,7 +388,7 @@ test('publish a post using template on sbot', t => {
     });
 })
 
-test.skip('deny when a non-admin tries to add a feed', t => {
+test.skip('deny when a non-admin tries to add a feed', async t => {
     const publish = (post) => {
         t.is(post.type, 'post')
         t.truthy(
@@ -397,7 +397,10 @@ test.skip('deny when a non-admin tries to add a feed', t => {
         t.end()
     }
     const sbot = { publish, whoami() { } }
+    const feedMonitor = {
+    }
     const config = {
+        feedMonitor,
         feedUrls: ['thefeedUrl'],
     }
     bot(config)(null, sbot)
