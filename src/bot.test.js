@@ -388,7 +388,7 @@ test('publish a post using template on sbot', t => {
     });
 })
 
-test.todo('deny when a non-admin tries to add a feed', t => {
+test.skip('deny when a non-admin tries to add a feed', t => {
     const publish = (post) => {
         t.is(post.type, 'post')
         t.truthy(
