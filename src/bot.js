@@ -25,7 +25,7 @@ Link: [{link}]({link})
 export default config => (err, sbot) => {
     if (err) throw err
     const { feedMonitor, feedUrls, postTemplate = defaultPostTemplate } = config;
-    let id;
+    let id, userStream;
     const createFeedMonitor = feedMonitor.create;
 
     const onPostPublished = (err, msg) => {
@@ -125,6 +125,7 @@ export default config => (err, sbot) => {
 
     const onSbotConnect = (_, keys) => {
         id = keys.id
+        userStream = sbot.createUserStream({ live: true, id })
         console.log(
             'feedMonitor user ID:',
             id
@@ -132,7 +133,6 @@ export default config => (err, sbot) => {
     }
 
     sbot.whoami(onSbotConnect)
-    sbot.createUserStream({live: true, id})
 
     createFeedMonitor(feedUrls, { onPost, onError })
 }
