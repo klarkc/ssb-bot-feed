@@ -389,21 +389,28 @@ test('publish a post using template on sbot', t => {
 })
 
 test.skip('deny when a non-admin tries to add a feed', async t => {
-    t.plan(4)
-    const fakeId = 'fakeId'
+    t.plan(5)
+    const fakeId = '@fakeId'
+    const fakePost = {
+        key: '%someKey',
+        content: 'Pl**eas****e add feed ht****t***ps*:**/**/*ww*w.feedfo***ral***l.com/samp****le.*xml'
+    }
     const publish = (post) => {
         t.is(post.type, 'post')
-        t.truthy(
-            post.text.includes('Sorry, you\'re not allowed to do this')
-        )
+        t.is(post.text, 'Sorry, you\'re not allowed to do this')
         t.end()
+    }
+    const unbox = (cypher, cb) => {
+        t.is(cypher, fakePost.content)
+        cb(null, cypher.replaceAll(/\*/g, ''))
     }
     const createUserStream = ({ live, id }) => {
         t.is(live, true)
         t.is(id, fakeId)
+        return pull.values([fakePost])
     }
     const whoami = cb => cb(null, { id: fakeId })
-    const sbot = { publish, createUserStream, whoami }
+    const sbot = { publish, unbox, createUserStream, whoami }
     const feedMonitor = {
         create() { },
         destroy() { },
