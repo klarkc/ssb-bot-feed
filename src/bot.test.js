@@ -402,7 +402,7 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
         t.is(live, true)
         t.is(id, fakeId)
     }
-    const whoami = () => fakeId
+    const whoami = cb => cb(null, { id: fakeId })
     const sbot = { publish, createUserStream, whoami }
     const feedMonitor = {
         create() { },
