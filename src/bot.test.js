@@ -398,6 +398,8 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
     }
     const sbot = { publish, whoami() { } }
     const feedMonitor = {
+        create() { },
+        destroy() { },
     }
     const config = {
         feedMonitor,
