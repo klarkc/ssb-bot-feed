@@ -387,3 +387,18 @@ test('publish a post using template on sbot', t => {
         bot(config)(null, sbot)
     });
 })
+
+test.todo('deny when a non-admin tries to add a feed', t => {
+    const publish = (post) => {
+        t.is(post.type, 'post')
+        t.truthy(
+            post.text.includes('Sorry, you\'re not allowed to do this')
+        )
+        t.end()
+    }
+    const sbot = { publish, whoami() { } }
+    const config = {
+        feedUrls: ['thefeedUrl'],
+    }
+    bot(config)(null, sbot)
+})
