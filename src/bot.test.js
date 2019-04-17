@@ -396,14 +396,15 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
         )
         t.end()
     }
-    const sbot = { publish, whoami() { } }
+    const createUserStream = ({ live, id }) => { }
+    const sbot = { publish, createUserStream, whoami() { } }
     const feedMonitor = {
         create() { },
         destroy() { },
     }
     const config = {
         feedMonitor,
-        feedUrls: ['thefeedUrl'],
+        feedUrls: [],
     }
     bot(config)(null, sbot)
 })
