@@ -389,6 +389,8 @@ test('publish a post using template on sbot', t => {
 })
 
 test.skip('deny when a non-admin tries to add a feed', async t => {
+    t.plan(4)
+    const fakeId = 'fakeId'
     const publish = (post) => {
         t.is(post.type, 'post')
         t.truthy(
@@ -396,8 +398,12 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
         )
         t.end()
     }
-    const createUserStream = ({ live, id }) => { }
-    const sbot = { publish, createUserStream, whoami() { } }
+    const createUserStream = ({ live, id }) => {
+        t.is(live, true)
+        t.is(id, fakeId)
+    }
+    const whoami = () => fakeId
+    const sbot = { publish, createUserStream, whoami }
     const feedMonitor = {
         create() { },
         destroy() { },
