@@ -4,6 +4,7 @@ import pull from 'pull-stream'
 import toPull from 'stream-to-pull-stream'
 import request from 'request'
 import commandFilter from './commandFilter'
+import decodePrivate from './decodePrivate'
 
 function setCallbackTimeout(cb, onTimeout, waitingTime = 5000) {
     const checker = setTimeout(onTimeout, waitingTime)
@@ -133,6 +134,7 @@ export default config => (err, sbot) => {
         userStream = sbot.createUserStream({ live: true, id })
         pull(
             userStream,
+            pull.mapAsync(decodePrivate),
             pull.filter(commandFilter),
             pull.take(onSbotCommand)
         )
