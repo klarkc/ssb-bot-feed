@@ -134,7 +134,7 @@ export default config => (err, sbot) => {
         userStream = sbot.createUserStream({ live: true, id })
         pull(
             userStream,
-            pull.mapAsync(decodePrivate(sbot)),
+            pull.asyncMap(decodePrivate(sbot)),
             pull.filter(commandFilter),
             pull.take(onSbotCommand)
         )
