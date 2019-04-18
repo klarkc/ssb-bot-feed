@@ -11,6 +11,7 @@ test('ignore not encrypted msgs', (t) => {
             t.is(data, d)
             resolve();
         }
-        decodePrivate(data, done)
+        const sbot = {}
+        decodePrivate(sbot)(data, done)
     });
 })

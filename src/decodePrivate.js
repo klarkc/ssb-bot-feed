@@ -1,3 +1,3 @@
-export default function (data, cb) {
+export default (sbot) => (data, cb) => {
     cb(null, data)
 }
