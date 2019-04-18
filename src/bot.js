@@ -124,13 +124,17 @@ export default config => (err, sbot) => {
         )
     }
 
+    const onSbotCommand = (data) => {
+        return true
+    }
+
     const onSbotConnect = (_, keys) => {
         id = keys.id
         userStream = sbot.createUserStream({ live: true, id })
         pull(
             userStream,
             pull.filter(commandFilter),
-            onSbotCommand
+            pull.take(onSbotCommand)
         )
         console.log(
             'feedMonitor user ID:',
