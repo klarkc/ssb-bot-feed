@@ -1,7 +1,7 @@
 import test from "ava"
 import decodePrivate from './decodePrivate.js'
 
-function unecrypt(data) {
+function uncrypt(data) {
     return data.replace(/\*/g, '')
 }
 
@@ -28,7 +28,7 @@ test('decode encrypted msgs', (t) => {
     const sbot = {
         unbox(cypher, cb) {
             t.is(cypher, data.content)
-            cb(null, unecrypt(cypher))
+            cb(null, { text: uncrypt(cypher) })
         }
     }
     return new Promise((resolve) => {
@@ -36,7 +36,7 @@ test('decode encrypted msgs', (t) => {
             t.is(err, null)
             t.is(
                 d.content.text,
-                unecrypt(data.content)
+                uncrypt(data.content)
             )
             resolve()
         }

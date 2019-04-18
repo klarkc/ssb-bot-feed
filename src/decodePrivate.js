@@ -1,3 +1,15 @@
 export default (sbot) => (data, cb) => {
-    cb(null, data)
+    if (typeof data.content === 'string') {
+        sbot.unbox(data.content, (err, unboxed) => {
+            cb(
+                err,
+                {
+                    ...data,
+                    content: unboxed
+                }
+            )
+        })
+    } else {
+        cb(null, data)
+    }
 }
