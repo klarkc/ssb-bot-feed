@@ -17,14 +17,20 @@ const argv = yargs
     .option('port', {
         alias: 'p',
         default: 8008, 
-        ype: 'number',
+        type: 'number',
         description: 'ssb-server port'
     })
     .option('path', {
         alias: 'd',
         default: undefined, 
-        ype: 'string',
+        type: 'string',
         description: 'ssb-server .ssb path'
+    })
+    .option('template', {
+        alias: 't',
+        default: undefined,
+        type: 'string',
+        description: 'Markdown file path to be used as template. {image}, {title}, {description} and {link} tokens are available.'
     })
     .argv
 
