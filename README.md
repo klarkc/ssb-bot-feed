@@ -19,7 +19,7 @@ Example:
 
 By default It connects on `localhost:8008` ([ssb-server](https://github.com/ssbc/ssb-server)) and uses `~/.ssb` settings.
 
-More info: `ssb-bot-feed --help`.
+Full documentation: `ssb-bot-feed --help`.
 
 ## Docker
 
