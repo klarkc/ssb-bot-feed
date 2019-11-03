@@ -8,10 +8,9 @@ import bot from './lib/bot.mjs'
 import feedMonitor from './lib/feedMonitor.mjs'
 
 function main(argv) {
-    const feedUrls = argv._
-    const { host, port, path, template } = argv
+    const { host, port, path, template, urls } = argv
     
-    const config = { feedUrls, feedMonitor }
+    const config = { feedUrls: urls, feedMonitor }
     if (template) {
         config.postTemplate = fs.readFileSync(template) 
     }
