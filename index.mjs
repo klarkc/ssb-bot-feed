@@ -8,11 +8,14 @@ import feedMonitor from './lib/feedMonitor.mjs'
 
 function main(argv) {
     const feedUrls = argv._;
-    const { host, port, path } = argv;
+    const { host, port, path, template } = argv
+
+    const postTemplate = fs.readFileSync(template)
 
     const handler = bot({
         feedUrls,
         feedMonitor,
+        postTemplate,
     })
 
     ssbClient(
