@@ -6,43 +6,53 @@ import yargs from 'yargs'
 import bot from './lib/bot.mjs'
 import feedMonitor from './lib/feedMonitor.mjs'
 
-const argv = yargs
-    .demandCommand(1)
+function main(argv) {
+    const feedUrls = argv._;
+    const { host, port, path } = argv;
+
+    const handler = bot({
+        feedUrls,
+        feedMonitor,
+    })
+
+    ssbClient(
+        { host, port, path },
+        handler
+    )
+}
+
+function mainBuilder(yargs) {
+    yargs.positional('urls', {
+        describe: 'List of feed URLs separated by spaces',
+        type: 'string'
+    })
+}
+
+yargs
+    .command('$0 <urls..>', 'Run the bot.', mainBuilder, main)
+    .help()
     .option('host', {
-        alias: 'h',
-        default: 'localhost',
-        type: 'string',
-        description: 'ssb-server host'
+            alias: 'h',
+            default: 'localhost',
+            type: 'string',
+            description: 'ssb-server host'
     })
     .option('port', {
-        alias: 'p',
-        default: 8008, 
-        type: 'number',
-        description: 'ssb-server port'
+            alias: 'p',
+            default: 8008, 
+            type: 'number',
+            description: 'ssb-server port'
     })
     .option('path', {
-        alias: 'd',
-        default: undefined, 
-        type: 'string',
-        description: 'ssb-server .ssb path'
+            alias: 'd',
+            default: undefined, 
+            type: 'string',
+            description: 'ssb-server .ssb path'
     })
     .option('template', {
-        alias: 't',
-        default: undefined,
-        type: 'string',
-        description: 'Markdown file path to be used as template. {image}, {title}, {description} and {link} tokens are available.'
+            alias: 't',
+            default: undefined,
+            type: 'string',
+            description: 'Markdown file path to be used as template. {image}, {title}, {description} and {link} tokens are available.'
     })
     .argv
-
-const feedUrls = argv._;
-const {host, port, path} = argv;
-
-const handler = bot({
-    feedUrls,
-    feedMonitor,
-})
-
-ssbClient(
-    { host, port, path },
-    handler
-)
