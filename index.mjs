@@ -12,7 +12,8 @@ function main(argv) {
     
     const config = { feedUrls: urls, feedMonitor }
     if (template) {
-        config.postTemplate = fs.readFileSync(template) 
+        config.postTemplate = fs.readFileSync(template, {encoding: 'utf-8'}) 
+        console.log(config.postTemplate);
     }
 
     const handler = bot(config)
