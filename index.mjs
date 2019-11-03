@@ -8,9 +8,24 @@ import feedMonitor from './lib/feedMonitor.mjs'
 
 const argv = yargs
     .demandCommand(1)
-    .option('host', {alias: 'h', default: 'localhost'})
-    .option('port', {alias: 'p', default: 8008})
-    .option('path', {alias: 'd', default: undefined})
+    .option('host', {
+        alias: 'h',
+        default: 'localhost',
+        type: 'string',
+        description: 'ssb-server host'
+    })
+    .option('port', {
+        alias: 'p',
+        default: 8008, 
+        ype: 'number',
+        description: 'ssb-server port'
+    })
+    .option('path', {
+        alias: 'd',
+        default: undefined, 
+        ype: 'string',
+        description: 'ssb-server .ssb path'
+    })
     .argv
 
 const feedUrls = argv._;
