@@ -1,8 +1,11 @@
 {
   "name": "ssb-bot-feed",
   "version": "2.1.1",
-  "description": "",
+  "description": "Scuttlebutt bot that read RSS feeds and post updates automatically",
   "main": "index.mjs",
+  "engines": {
+    "node": ">=8.9.0"
+  },
   "scripts": {
     "test": "ava",
     "start": "node --experimental-modules --no-warnings index.mjs",
