@@ -3,6 +3,7 @@
 
 import ssbClient from 'ssb-client'
 import yargs from 'yargs'
+import fs from 'fs'
 import bot from './lib/bot.mjs'
 import feedMonitor from './lib/feedMonitor.mjs'
 
@@ -31,7 +32,7 @@ function mainBuilder(yargs) {
     })
 }
 
-yargs
+ yargs
     .command('$0 <urls..>', 'Run the bot.', mainBuilder, main)
     .help()
     .option('host', {
