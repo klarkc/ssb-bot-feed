@@ -1,4 +1,4 @@
-import RssFeedEmitter from 'rss-feed-emitter'
+import {RssFeedEmitter} from '../deps.ts'
 
 const feeder = new RssFeedEmitter();
 

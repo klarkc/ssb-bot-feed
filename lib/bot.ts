@@ -1,8 +1,5 @@
 // import Turndown from 'turndown'
-import striptags from 'striptags'
-import pull from 'pull-stream'
-import toPull from 'stream-to-pull-stream'
-import request from 'request'
+import {striptags, pull, toPull, request} from '../deps.ts'
 
 function setCallbackTimeout(cb, onTimeout, waitingTime = 5000) {
     const checker = setTimeout(onTimeout, waitingTime)

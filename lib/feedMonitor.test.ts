@@ -1,7 +1,4 @@
-import path from 'path'
-import fs from 'fs'
-import test from 'ava'
-import nock from 'nock'
+import {path, fs, test, nock} from '../deps.ts'
 import {create, destroy} from './feedMonitor.ts'
 
 function doTest(t, feeds, today = false) {

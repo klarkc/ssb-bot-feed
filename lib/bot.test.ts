@@ -1,6 +1,4 @@
-import path from 'path'
-import test from 'ava'
-import nock from 'nock'
+import {path, test, nock} from '../deps.ts'
 import bot from './bot.ts'
 import stringLength from './stringLength.ts'
 
