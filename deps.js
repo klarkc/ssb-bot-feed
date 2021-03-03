@@ -1,6 +1,5 @@
 export { default as fs } from 'https://deno.land/std@0.89.0/node/fs.ts'
 export { default as yargs } from 'https://deno.land/x/yargs@v16.2.0-deno/deno.ts'
-export { Arguments as YargsArguments } from 'https://deno.land/x/yargs@v16.2.0-deno/deno-types.ts'
 export { default as ssbClient } from 'https://dev.jspm.io/ssb-client@4.7.8'
 export { default as striptags } from 'https://dev.jspm.io/striptags@3.1.1'
 export { default as pull } from 'https://dev.jspm.io/pull-stream@3.6.14'
