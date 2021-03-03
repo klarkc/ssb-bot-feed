@@ -1,4 +1,4 @@
-import {ssbClient, yargs, fs} from './deps.ts'
+import { ssbClient, yargs, fs, YargsArguments } from './deps.ts'
 import bot from './lib/bot.ts'
 import feedMonitor from './lib/feedMonitor.ts'
 
@@ -18,7 +18,7 @@ function main(argv) {
     )
 }
 
-function mainBuilder(yargs) {
+function mainBuilder(yargs: YargsArguments) {
     yargs.positional('urls', {
         describe: 'List of feed URLs separated by spaces',
         type: 'string'
