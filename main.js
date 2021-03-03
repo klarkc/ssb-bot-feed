@@ -1,6 +1,6 @@
-import { ssbClient, yargs, fs, YargsArguments } from './deps.ts'
-import bot from './lib/bot.ts'
-import feedMonitor from './lib/feedMonitor.ts'
+import { ssbClient, yargs, fs } from './deps.js'
+import bot from './lib/bot.js'
+import feedMonitor from './lib/feedMonitor.js'
 
 function main(argv) {
     const { host, port, path, template, urls } = argv
@@ -18,7 +18,7 @@ function main(argv) {
     )
 }
 
-function mainBuilder(yargs: YargsArguments) {
+function mainBuilder(yargs) {
     yargs.positional('urls', {
         describe: 'List of feed URLs separated by spaces',
         type: 'string'
