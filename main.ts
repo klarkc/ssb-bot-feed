@@ -4,8 +4,8 @@
 import ssbClient from 'ssb-client'
 import yargs from 'yargs'
 import fs from 'fs'
-import bot from './lib/bot.mjs'
-import feedMonitor from './lib/feedMonitor.mjs'
+import bot from './lib/bot.ts'
+import feedMonitor from './lib/feedMonitor.ts'
 
 function main(argv) {
     const { host, port, path, template, urls } = argv

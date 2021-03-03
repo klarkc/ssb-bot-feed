@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import test from 'ava'
 import nock from 'nock'
-import {create, destroy} from './feedMonitor'
+import {create, destroy} from './feedMonitor.ts'
 
 function doTest(t, feeds, today = false) {
     t.plan(2)

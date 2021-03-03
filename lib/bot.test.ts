@@ -1,8 +1,8 @@
 import path from 'path'
 import test from 'ava'
 import nock from 'nock'
-import bot from './bot'
-import stringLength from './stringLength'
+import bot from './bot.ts'
+import stringLength from './stringLength.ts'
 
 test('throws when ssbClient errored', t => {
     t.throws(() => bot({})(Error('foo')), 'foo')
