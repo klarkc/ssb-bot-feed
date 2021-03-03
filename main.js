@@ -1,4 +1,6 @@
-import { ssbClient, yargs, fs } from './deps.js'
+import fs from 'fs'
+import ssbClient from 'ssb-client'
+import yargs from 'yargs'
 import bot from './lib/bot.js'
 import feedMonitor from './lib/feedMonitor.js'
 
