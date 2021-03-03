@@ -1,6 +1,3 @@
-#!/bin/sh
-":" //# comment; exec /usr/bin/env node --experimental-modules --no-warnings "$0" "$@"
-
 import {ssbClient, yargs, fs} from './deps.ts'
 import bot from './lib/bot.ts'
 import feedMonitor from './lib/feedMonitor.ts'
