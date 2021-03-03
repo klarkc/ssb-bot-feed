@@ -1,0 +1,13 @@
+{
+    "imports": {
+        "fs": "https://deno.land/std@0.89.0/node/fs.ts",
+        "path": "https://deno.land/std@0.89.0/node/path.ts",
+        "yargs": "https://deno.land/x/yargs@v16.2.0-deno/deno.ts",
+        "striptags": "https://dev.jspm.io/striptags@3.1.1",
+        "pull-stream": "https://dev.jspm.io/pull-stream@3.6.14",
+        "rss-feed-emitter": "https://dev.jspm.io/rss-feed-emitter@3.2.2",
+        "ssb-client": "https://dev.jspm.io/ssb-client@4.7.8",
+        "stream-to-pull-stream": "https://dev.jspm.io/stream-to-pull-stream@1.7.3",
+        "request": "https://dev.jspm.io/request@2.88.0"
+    }
+}
