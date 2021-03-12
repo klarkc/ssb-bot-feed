@@ -39,3 +39,7 @@ docker run -d --name ssb-bot-feed \
 
 - [ ] `IN PROGRESS` rewrite the code to TypeScript to improve DX
 - [ ] Add runtime admin commands through SSB protocol
+
+## Alternatives
+
+- [ssb-bot-feed](https://github.com/marine-master/ssb-bot-feed) more robust fork with yaml configuration and more features
