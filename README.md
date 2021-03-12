@@ -34,3 +34,8 @@ docker run -d --name ssb-bot-feed \
    -v ~/.ssb:/root/.ssb \
    klarkc/ssb-bot-feed -h localhost -p 8008 http://www.nintendolife.com/feeds/news
 ```
+
+## Roadmap
+
+- [ ] `IN PROGRESS` rewrite the code to TypeScript to improve DX
+- [ ] Add runtime admin commands through SSB protocol
