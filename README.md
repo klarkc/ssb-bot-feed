@@ -1,5 +1,4 @@
 # ssb-bot-feed
-[![Travis](https://img.shields.io/travis/klarkc/ssb-bot-feed/master.svg)](https://travis-ci.org/klarkc/ssb-bot-feed/branches)
 
 Scuttlebutt bot that read RSS feeds and post updates automatically
 
