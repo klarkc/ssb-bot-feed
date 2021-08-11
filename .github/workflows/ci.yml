@@ -24,8 +24,14 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm install
+
+      - run: npm publish
+        if: github.event_name != 'pull_request'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Docker meta
         id: meta
