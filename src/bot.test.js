@@ -5,7 +5,8 @@ import bot from './bot.js'
 import stringLength from './stringLength.js'
 
 test('throws when ssbClient errored', t => {
-    t.throws(() => bot({})(Error('foo')), 'foo')
+    const error = t.throws(() => bot({})(Error('foo')));
+    t.is(error.message, 'foo');
 })
 
 test.cb('console log when feedMonitor emits error', t => {
