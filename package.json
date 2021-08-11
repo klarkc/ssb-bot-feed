@@ -9,9 +9,9 @@
   },
   "scripts": {
     "test": "ava",
-    "start": "node --experimental-modules --no-warnings index.js",
+    "start": "./index.js",
     "dev:server": "npx ssb-server start --port 9999 --path .ssb",
-    "dev:client": "node --experimental-modules --no-warnings index.js --path .ssb --port 9999 http://feeds.bbci.co.uk/news/rss.xml http://rss.slashdot.org/Slashdot/slashdot",
+    "dev:client": "./index.js --path .ssb --port 9999 http://feeds.bbci.co.uk/news/rss.xml http://rss.slashdot.org/Slashdot/slashdot",
     "dev": "concurrently --kill-others --restart-tries 3 --restart-after 3000 \"npm run dev:server\" \"npm run dev:client\""
   },
   "bin": {
