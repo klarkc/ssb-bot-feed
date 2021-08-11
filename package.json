@@ -2,7 +2,8 @@
   "name": "ssb-bot-feed",
   "version": "2.2.0",
   "description": "Scuttlebutt bot that read RSS feeds and post updates automatically",
-  "main": "index.mjs",
+  "main": "index.js",
+  "type": "module",
   "engines": {
     "node": ">=8.9.0"
   },
@@ -14,7 +15,7 @@
     "dev": "concurrently --kill-others --restart-tries 3 --restart-after 3000 \"npm run dev:server\" \"npm run dev:client\""
   },
   "bin": {
-    "ssb-bot-feed": "index.mjs"
+    "ssb-bot-feed": "index.js"
   },
   "keywords": [
     "ssb",
@@ -38,7 +39,7 @@
     ],
     "babel": false,
     "extensions": [
-      "mjs"
+      "js"
     ]
   },
   "dependencies": {
