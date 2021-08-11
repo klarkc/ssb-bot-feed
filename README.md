@@ -22,6 +22,8 @@ Full documentation: `ssb-bot-feed --help`.
 
 ## Docker
 
+⚠️ Docker image is no longer updated ([this is the why](https://www.reddit.com/r/docker/comments/otyet9/automated_builds_are_paid_now/)), there is not so much we can do right now.
+
 The docker image assumes that you have a [ssb-server](https://github.com/ssbc/ssb-server) listening on localhost:8008
 
 `~/.ssb` is the path to `.ssb` folder where bot will load secrets and manifest
