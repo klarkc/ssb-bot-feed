@@ -1,4 +1,4 @@
-import path from 'path'
+import path, { resolve } from 'path'
 import fs from 'fs'
 import test from 'ava'
 import nock from 'nock'
@@ -45,49 +45,51 @@ function doTest(t, feeds, today = false) {
         )
     })
 
-    const done = () => {
-        if (today) {
-            t.is(
-                itemsReceived.length,
-                totalSize
-            )
-        } else {
-            t.is(
-                itemsReceived.length,
-                0
-            )
-        }
-        t.deepEqual(errors, [])
-        scopes.forEach(
-            scope => scope.isDone()
-        )
-        destroy()
-        t.end()
-    }
-
-    const checkDone = () => {
-        remaining = remaining - 1
-        // console.log(remaining)
-        if (remaining < 1) {
-            done()
-        }
-    }
-
-    const onPost = entry => {
-        // console.log('post', entry.pubDate)
-        itemsReceived.push(entry)
-        checkDone()
-    }
-
-    const onSkipPost = () => {
-        checkDone()
-    }
-
     const onError = error => {
         errors.push(error)
     }
 
-    create(feedsUrls, { onPost, onSkipPost, onError })
+    return new Promise(resolve => {
+        const done = () => {
+            if (today) {
+                t.is(
+                    itemsReceived.length,
+                    totalSize
+                )
+            } else {
+                t.is(
+                    itemsReceived.length,
+                    0
+                )
+            }
+            t.deepEqual(errors, [])
+            scopes.forEach(
+                scope => scope.isDone()
+            )
+            destroy()
+            resolve();
+        }
+
+        const checkDone = () => {
+            remaining = remaining - 1
+            // console.log(remaining)
+            if (remaining < 1) {
+                done()
+            }
+        }
+
+        const onPost = entry => {
+            // console.log('post', entry.pubDate)
+            itemsReceived.push(entry)
+            checkDone()
+        }
+
+        const onSkipPost = () => {
+            checkDone()
+        }
+
+        create(feedsUrls, { onPost, onSkipPost, onError })
+    });
 }
 
 const feeds = [
@@ -104,10 +106,10 @@ const feeds = [
     }
 ]
 
-const todayEntries = () => (t) =>
+const todayEntries = (t) =>
     doTest(t, feeds, true)
-const pastEntries = () => (t) =>
+const pastEntries = (t) =>
     doTest(t, feeds, false)
 
-test.serial.cb('call onPost every new entry for todayEntries', todayEntries())
-test.serial.cb('does not call onPost for old entries', pastEntries())
+test.serial('call onPost every new entry for todayEntries', todayEntries)
+test.serial('does not call onPost for old entries', pastEntries)
