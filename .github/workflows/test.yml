@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - master
+
+
+jobs:
+
+   test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [12, 14, 15, 16]
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm install --no-save
+
+      - run: npm run test
+

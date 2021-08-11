@@ -1,20 +1,21 @@
 {
   "name": "ssb-bot-feed",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Scuttlebutt bot that read RSS feeds and post updates automatically",
-  "main": "index.mjs",
+  "main": "index.js",
+  "type": "module",
   "engines": {
-    "node": ">=8.9.0"
+    "node": ">=12"
   },
   "scripts": {
     "test": "ava",
-    "start": "node --experimental-modules --no-warnings index.mjs",
+    "start": "./index.js",
     "dev:server": "npx ssb-server start --port 9999 --path .ssb",
-    "dev:client": "node --experimental-modules --no-warnings index.mjs --path .ssb --port 9999 http://feeds.bbci.co.uk/news/rss.xml http://rss.slashdot.org/Slashdot/slashdot",
+    "dev:client": "./index.js --path .ssb --port 9999 http://feeds.bbci.co.uk/news/rss.xml http://rss.slashdot.org/Slashdot/slashdot",
     "dev": "concurrently --kill-others --restart-tries 3 --restart-after 3000 \"npm run dev:server\" \"npm run dev:client\""
   },
   "bin": {
-    "ssb-bot-feed": "index.mjs"
+    "ssb-bot-feed": "index.js"
   },
   "keywords": [
     "ssb",
@@ -26,20 +27,11 @@
   "author": "Walker at praiseweb.com.br",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^4.0.0-alpha.2",
     "concurrently": "^5.0.0",
     "nock": "^11.7.0",
     "ssb-config": "^3.4.2",
     "ssb-server": "^15.1.2"
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ],
-    "babel": false,
-    "extensions": [
-      "mjs"
-    ]
   },
   "dependencies": {
     "pull-stream": "^3.6.14",

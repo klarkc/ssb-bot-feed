@@ -1,11 +1,11 @@
 #!/bin/sh
-":" //# comment; exec /usr/bin/env node --experimental-modules --no-warnings "$0" "$@"
+":" //# comment; exec /usr/bin/env node "$0" "$@"
 
 import ssbClient from 'ssb-client'
 import yargs from 'yargs'
 import fs from 'fs'
-import bot from './lib/bot.mjs'
-import feedMonitor from './lib/feedMonitor.mjs'
+import bot from './src/bot.js'
+import feedMonitor from './src/feedMonitor.js'
 
 function main(argv) {
     const { host, port, path, template, urls } = argv
