@@ -27,20 +27,11 @@
   "author": "Walker at praiseweb.com.br",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^4.0.0-alpha.2",
     "concurrently": "^5.0.0",
     "nock": "^11.7.0",
     "ssb-config": "^3.4.2",
     "ssb-server": "^15.1.2"
-  },
-  "ava": {
-    "require": [
-      "esm"
-    ],
-    "babel": false,
-    "extensions": [
-      "js"
-    ]
   },
   "dependencies": {
     "pull-stream": "^3.6.14",
