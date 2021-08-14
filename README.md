@@ -41,4 +41,4 @@ docker run -d --name ssb-bot-feed \
 
 ## Alternatives
 
-- [marine-master/ssb-bot-feed](https://github.com/marine-master/ssb-bot-feed) more robust fork with yaml configuration and more features
+- [marine-master/ssb-bot-feed](https://www.npmjs.com/package/@marine-master/ssb-bot-feed) more robust fork with yaml configuration and more features (unmaintained)
