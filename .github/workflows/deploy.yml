@@ -25,7 +25,7 @@ jobs:
           cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: npm install
+      - run: npm install --no-save
 
       - run: npm publish
         if: github.event_name != 'pull_request'
