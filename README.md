@@ -36,8 +36,10 @@ docker run -d --name ssb-bot-feed \
 
 ## Roadmap
 
-- [ ] `IN PROGRESS` rewrite the code to TypeScript to improve DX
-- [ ] Add runtime admin commands through SSB protocol
+[:heart: Sponsor](https://gitcoin.co/grants/2237/ssb-bot-feed)
+
+- [ ] `IN PROGRESS` [Add runtime admin commands through SSB protocol](klarkc/ssb-bot-feed#6)
+- [ ] Rewrite the code to TypeScript to improve DX
 
 ## Alternatives
 
