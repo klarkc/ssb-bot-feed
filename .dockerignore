@@ -1,6 +1,7 @@
-node_modules
-npm-debug.log
-.github
-.git
-fixtures
-.gitignore
+/node_modules
+/npm-debug.log
+/.github
+/.git
+/fixtures
+/.gitignore
+*.test.js
