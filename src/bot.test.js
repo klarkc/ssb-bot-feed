@@ -395,11 +395,6 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
         key: '%someKey',
         content: 'Pl**eas****e add feed ht****t***ps*:**/**/*ww*w.feedfo***ral***l.com/samp****le.*xml'
     }
-    const unbox = (cypher, cb) => {
-        t.is(cypher, fakePost.content)
-        t.end()
-        cb(null, cypher.replaceAll(/\*/g, ''))
-    }
     const createUserStream = ({ live, id }) => {
         t.is(live, true)
         t.is(id, fakeId)
@@ -414,11 +409,15 @@ test.skip('deny when a non-admin tries to add a feed', async t => {
         feedMonitor,
         feedUrls: [],
     }
+    const publish = (post) => {
+        t.is(post.type, 'post')
+        t.is(post.text, 'Sorry, you\'re not allowed to do this')
+    }
     return new Promise((resolve) => {
-        const publish = (post) => {
-            t.is(post.type, 'post')
-            t.is(post.text, 'Sorry, you\'re not allowed to do this')
+        const unbox = (cypher, cb) => {
+            t.is(cypher, fakePost.content)
             resolve();
+            cb(null, cypher.replaceAll(/\*/g, ''))
         }
         const sbot = { publish, unbox, createUserStream, whoami }
         bot(config)(null, sbot)
