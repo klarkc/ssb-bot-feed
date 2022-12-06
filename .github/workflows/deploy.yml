@@ -37,6 +37,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
 
       - run: npm publish
+        if: github.event_name != 'pull_request'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
