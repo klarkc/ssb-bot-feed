@@ -1,5 +1,7 @@
 # ssb-bot-feed
 
+[![backers](https://img.shields.io/badge/backers-0-yellow?style=for-the-badge)](https://handle.me/walkerleite)
+
 Scuttlebutt bot that read RSS feeds and post updates automatically
 
 ## Usage
@@ -33,13 +35,6 @@ docker run -d --name ssb-bot-feed \
    -v ~/.ssb:/root/.ssb \
    klarkc/ssb-bot-feed -h localhost -p 8008 http://www.nintendolife.com/feeds/news
 ```
-
-## Roadmap
-
-[:heart: Sponsor](https://gitcoin.co/grants/2237/ssb-bot-feed)
-
-- [ ] `IN PROGRESS` Add runtime admin commands through SSB protocol ([#6](https://github.com/klarkc/ssb-bot-feed/pull/6))
-- [ ] Rewrite the code to TypeScript to improve DX
 
 ## Alternatives
 
