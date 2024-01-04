@@ -1,4 +1,4 @@
-FROM  node:16-alpine
+FROM  node:18-alpine
 WORKDIR /usr/src/ssb-bot-feed
 RUN apk add --no-cache python3 build-base libtool autoconf automake
 COPY . .
