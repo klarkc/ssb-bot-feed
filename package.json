@@ -1,6 +1,6 @@
 {
   "name": "ssb-bot-feed",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "Scuttlebutt bot that read RSS feeds and post updates automatically",
   "main": "index.js",
   "type": "module",
