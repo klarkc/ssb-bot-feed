@@ -16,7 +16,7 @@ jobs:
         token: ${{ secrets.PAT_TOKEN }}
     - name: Bump version and push tag
       id: changelog
-      uses: TriPSs/conventional-changelog-action@v3
+      uses: TriPSs/conventional-changelog-action@v5
       with:
         github-token: ${{ secrets.PAT_TOKEN }}
         git-message: 'chore(release): {version}'
