@@ -24,7 +24,7 @@
   "author": "Walker at praiseweb.com.br",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^4.0.0-alpha.2",
+    "ava": "^6.1.0",
     "concurrently": "^5.0.0",
     "nock": "^13.5.0",
     "ssb-config": "^3.4.2",
