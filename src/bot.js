@@ -3,6 +3,8 @@ import striptags from 'striptags'
 import pull from 'pull-stream'
 import toPull from 'stream-to-pull-stream'
 import request from 'request'
+import commandFilter from './commandFilter'
+import decodePrivate from './decodePrivate'
 
 function setCallbackTimeout(cb, onTimeout, waitingTime = 5000) {
     const checker = setTimeout(onTimeout, waitingTime)
@@ -25,6 +27,7 @@ Link: [{link}]({link})
 export default config => (err, sbot) => {
     if (err) throw err
     const { feedMonitor, feedUrls, postTemplate = defaultPostTemplate } = config;
+    let id, userStream;
     const createFeedMonitor = feedMonitor.create;
 
     const onPostPublished = (err, msg) => {
@@ -122,10 +125,22 @@ export default config => (err, sbot) => {
         )
     }
 
+    const onSbotCommand = (data) => {
+        return true
+    }
+
     const onSbotConnect = (_, keys) => {
+        id = keys.id
+        userStream = sbot.createUserStream({ live: true, id })
+        pull(
+            userStream,
+            pull.asyncMap(decodePrivate(sbot)),
+            pull.filter(commandFilter),
+            pull.take(onSbotCommand)
+        )
         console.log(
             'feedMonitor user ID:',
-            keys.id
+            id
         )
     }
 
