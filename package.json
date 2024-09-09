@@ -25,7 +25,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^4.0.0-alpha.2",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.0",
     "nock": "^13.5.0",
     "ssb-config": "^3.4.2",
     "ssb-server": "^15.1.2"
